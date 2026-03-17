@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Voice Translator</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="container">
+      <h1>Voice Translator</h1>
+      <p class="subtitle">Record speech, translate it, and securely save your history.</p>
+
+      <section class="card" id="auth-card">
+        <h2>Login / Sign Up</h2>
+        <form id="auth-form">
+          <label>Email <input type="email" id="email" required /></label>
+          <label>Password <input type="password" id="password" minlength="6" required /></label>
+          <div class="row">
+            <button type="submit" data-mode="login">Login</button>
+            <button type="submit" data-mode="signup" class="secondary">Sign up</button>
+          </div>
+        </form>
+        <p class="hint">After login, your own saved recordings/translations stay available in your account.</p>
+      </section>
+
+      <section class="card hidden" id="app-card">
+        <div class="row between">
+          <h2 id="welcome">Your Workspace</h2>
+          <button id="logout" class="secondary">Logout</button>
+        </div>
+
+        <div class="controls">
+          <label>
+            Translate to
+            <select id="target-lang">
+              <option value="es">Spanish</option>
+              <option value="fr">French</option>
+              <option value="de">German</option>
+              <option value="id">Indonesian</option>
+              <option value="ja">Japanese</option>
+            </select>
+          </label>
+          <button id="record">Start Recording</button>
+        </div>
+
+        <div class="output">
+          <h3>Transcript</h3>
+          <p id="transcript">—</p>
+          <h3>Translation</h3>
+          <p id="translation">—</p>
+        </div>
+
+        <button id="save" disabled>Save Entry</button>
+
+        <h3>Saved History</h3>
+        <ul id="history"></ul>
+      </section>
+
+      <p id="status"></p>
+    </main>
+
+    <script type="module" src="app.js"></script>
+  </body>
+</html>
